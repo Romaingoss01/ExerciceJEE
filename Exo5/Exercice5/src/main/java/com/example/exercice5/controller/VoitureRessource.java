@@ -7,7 +7,6 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Path("/voitures")
@@ -52,5 +51,19 @@ public class VoitureRessource {
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
+    }
+
+//    @PATCH
+//    @Path("/{id}")
+//    public Response modifierVoiture(@PathParam("id") int id) {
+//        Voiture voiture = voitureService.getById(id);
+//        if (voiture != null) {
+
+
+    @PUT
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Voiture updateProduct(@PathParam("id") int id) {
+        return voitureService.save(id,"tesla", 2025, "violet");
     }
 }

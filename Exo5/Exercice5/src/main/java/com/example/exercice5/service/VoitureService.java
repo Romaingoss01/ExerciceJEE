@@ -47,4 +47,12 @@ public class VoitureService {
         }
         return false;
     }
+
+    public Voiture update(Voiture voiture) {
+        Voiture v = getById(voiture.getId());
+        v.setMarque(voiture.getMarque());
+        v.setCouleur(voiture.getCouleur());
+        v.setFabricationAnnee(voiture.getFabricationAnnee());
+        return v;
+    }
 }
